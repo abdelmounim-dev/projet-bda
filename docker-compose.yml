@@ -1,0 +1,27 @@
+name: databases
+services:
+  oracle-xe:
+    ports:
+      - 1521:1521
+    environment:
+      - ORACLE_PASSWORD=psw
+    volumes:
+      - oracle-volume:/opt/oracle/oradata
+    image: gvenzl/oracle-xe
+
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ab
+      MONGO_INITDB_ROOT_PASSWORD: psw
+
+volumes:
+  mongodb_data:
+    name: mongodb_data
+  oracle-volume:
+    name: oracle-volume
