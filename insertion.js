@@ -1,5 +1,5 @@
 // Inserting values into the Client collection
-db.Client.insertMany([
+var clients = [
   {
     NumClient: 1,
     Civ: "Mme",
@@ -253,9 +253,10 @@ db.Client.insertMany([
     TelPriv: "0561724538",
     Fax: null
   }
-]);
+]
+db.Client.insertMany(clients);
 
-db.Employe.insertMany([
+var employes = [
   {
     NumEmploye: 53,
     NomEmp: "LACHEMI",
@@ -395,10 +396,12 @@ db.Employe.insertMany([
     PrenomEmp: "Karim",
     Salaire: 25000
   }
-]);
+]
+db.Employe.insertMany(employes);
 
 // Inserting values into the Marque collection
-db.Marque.insertMany([
+
+var marques = [
   { NumMarque: 1, Marque: "LAMBORGHINI", Pays: "ITALIE" },
   { NumMarque: 2, Marque: "AUDI", Pays: "ALLEMAGNE" },
   { NumMarque: 3, Marque: "ROLLS-ROYCE", Pays: "GRANDE-BRETAGNE" },
@@ -420,10 +423,11 @@ db.Marque.insertMany([
   { NumMarque: 19, Marque: "TOYOTA", Pays: "JAPON" },
   { NumMarque: 20, Marque: "VENTURI", Pays: "FRANCE" },
   { NumMarque: 21, Marque: "VOLVO", Pays: "SUEDE" }
-]);
+]
+db.Marque.insertMany(marques);
 
 // Inserting values into the Modele collection
-db.Modele.insertMany([
+var modeles = [
   { NumModele: 1, NumMarque: 2, Modele: "Diablo" },
   { NumModele: 2, NumMarque: 3, Modele: "Série 5" },
   { NumModele: 3, NumMarque: 10, Modele: "NSX" },
@@ -452,10 +456,11 @@ db.Modele.insertMany([
   { NumModele: 26, NumMarque: 18, Modele: "95 Cabriolet" },
   { NumModele: 27, NumMarque: 2, Modele: "TT Coupé" },
   { NumModele: 28, NumMarque: 7, Modele: "F 355" }
-]);
+]
+db.Modele.insertMany(modeles);
 
 // Inserting values into the Vehicule collection
-db.Vehicule.insertMany([
+var vehicules = [
   { NumVehicule: 1, NumClient: 2, NumModele: 6, NumImmat: "0012519216", Annee: 1992 },
   { NumVehicule: 2, NumClient: 9, NumModele: 20, NumImmat: "0124219316", Annee: 1993 },
   { NumVehicule: 3, NumClient: 17, NumModele: 8, NumImmat: "1452318716", Annee: 1987 },
@@ -484,10 +489,11 @@ db.Vehicule.insertMany([
   { NumVehicule: 26, NumClient: 3, NumModele: 10, NumImmat: "1458919316", Annee: 1993 },
   { NumVehicule: 27, NumClient: 10, NumModele: 7, NumImmat: "1256019804", Annee: 1998 },
   { NumVehicule: 28, NumClient: 10, NumModele: 3, NumImmat: "1986219904", Annee: 1999 }
-]);
+]
+db.Vehicule.insertMany(vehicules);
 
 // Inserting values into the Interventions collection
-db.Interventions.insertMany([
+var inteventions = [
   { NumIntervention: 1, NumVehicule: 3, TypeIntervention: "Réparation", DateDebInterv: new Date("2006-02-25T09:00:00"), DateFinInterv: new Date("2006-02-26T12:00:00"), CoutInterv: 30000 },
   { NumIntervention: 2, NumVehicule: 21, TypeIntervention: "Réparation", DateDebInterv: new Date("2006-02-23T09:00:00"), DateFinInterv: new Date("2006-02-24T18:00:00"), CoutInterv: 10000 },
   { NumIntervention: 3, NumVehicule: 25, TypeIntervention: "Réparation", DateDebInterv: new Date("2006-04-06T14:00:00"), DateFinInterv: new Date("2006-04-09T12:00:00"), CoutInterv: 42000 },
@@ -503,10 +509,11 @@ db.Interventions.insertMany([
   { NumIntervention: 13, NumVehicule: 8, TypeIntervention: "Réparation Système", DateDebInterv: new Date("2006-05-12T14:00:00"), DateFinInterv: new Date("2006-05-12T18:00:00"), CoutInterv: 17846 },
   { NumIntervention: 14, NumVehicule: 1, TypeIntervention: "Réparation", DateDebInterv: new Date("2006-05-10T14:00:00"), DateFinInterv: new Date("2006-05-12T12:00:00"), CoutInterv: 39000 },
   { NumIntervention: 15, NumVehicule: 20, TypeIntervention: "Réparation Système", DateDebInterv: new Date("2006-06-25T09:00:00"), DateFinInterv: new Date("2006-06-25T12:00:00"), CoutInterv: 27000 }
-]);
+]
+db.Interventions.insertMany(inteventions);
 
 // Inserting values into the Intervenants collection
-db.Intervenants.insertMany([
+var intervenants = [
   { NumIntervention: 1, NumEmploye: 54, DateDebut: new Date("2006-02-26T09:00:00"), DateFin: new Date("2006-02-26T12:00:00") },
   { NumIntervention: 1, NumEmploye: 59, DateDebut: new Date("2006-02-25T09:00:00"), DateFin: new Date("2006-02-25T18:00:00") },
   { NumIntervention: 2, NumEmploye: 57, DateDebut: new Date("2006-02-24T14:00:00"), DateFin: new Date("2006-02-24T18:00:00") },
@@ -533,4 +540,5 @@ db.Intervenants.insertMany([
   { NumIntervention: 12, NumEmploye: 55, DateDebut: new Date("2006-05-05T09:00:00"), DateFin: new Date("2006-05-05T18:00:00") },
   { NumIntervention: 12, NumEmploye: 56, DateDebut: new Date("2006-05-03T09:00:00"), DateFin: new Date("2006-05-05T12:00:00") },
   { NumIntervention: 13, NumEmploye: 64, DateDebut: new Date("2006-05-12T14:00:00"), DateFin: new Date("2006-05-12T18:00:00") }
-]);
+]
+db.Intervenants.insertMany(intervenants);

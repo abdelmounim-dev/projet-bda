@@ -1,6 +1,6 @@
 // Afficher tous les véhicules de la marque « PORSCHE »
-const porsche = db.Marque.findOne({ "Marque": "PORSCHE" }).NumMarque
-const modeles = db.Modele.find({ "NumMarque": porsche }).toArray().map(doc => doc.NumModele)
+var porsche = db.Marque.findOne({ "Marque": "PORSCHE" }).NumMarque
+var modeles = db.Modele.find({ "NumMarque": porsche }).toArray().map(doc => doc.NumModele)
 db.Vehicule.find({ "NumModele": { $in: modeles } })
 
 // Récupérer dans une nouvelle collection Véhicules_Interventions, les matricules des véhicules et le nombre total d'interventions par véhicule, ordonnée par ordre décroissant du nombre d'interventions
